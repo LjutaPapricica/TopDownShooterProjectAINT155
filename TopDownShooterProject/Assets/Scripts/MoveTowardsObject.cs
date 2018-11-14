@@ -11,8 +11,23 @@ public class MoveTowardsObject : MonoBehaviour {
     {
         if (target != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * 0.01f);
+            Vector3 currentPos = transform.position;
+            Vector3 targetPos = target.position;
+
+            float dist = Vector3.Distance(transform.position, target.position);
+
+            if (dist < 1)
+            {
+
+            }
+            else 
+            {
+                transform.position = Vector3.MoveTowards(currentPos, targetPos, speed * 0.01f);
+            }
         }
+
+        
+
     }
 
     public void SetTarget(Transform newTarget)

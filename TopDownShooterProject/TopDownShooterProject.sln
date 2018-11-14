@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2017
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopDownShooterProject", "TopDownShooterProject.csproj", "{60ECEC03-4598-1453-20AD-0FF4D2A0879A}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopDownShooterProject.Editor", "TopDownShooterProject.Editor.csproj", "{82DF3CFA-AF7F-B2C3-4514-9032CDD4344F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopDownShooterProject.Editor", "TopDownShooterProject.Editor.csproj", "{82DF3CFA-AF7F-B2C3-4514-9032CDD4344F}"
 EndProject
@@ -21,12 +21,11 @@ Global
 		{82DF3CFA-AF7F-B2C3-4514-9032CDD4344F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82DF3CFA-AF7F-B2C3-4514-9032CDD4344F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82DF3CFA-AF7F-B2C3-4514-9032CDD4344F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{82DF3CFA-AF7F-B2C3-4514-9032CDD4344F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{82DF3CFA-AF7F-B2C3-4514-9032CDD4344F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{82DF3CFA-AF7F-B2C3-4514-9032CDD4344F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{82DF3CFA-AF7F-B2C3-4514-9032CDD4344F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD42CD4A-61C9-4CC0-A507-7F69B24E3407}
 	EndGlobalSection
 EndGlobal
