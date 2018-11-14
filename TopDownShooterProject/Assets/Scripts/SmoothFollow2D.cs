@@ -11,4 +11,9 @@ public class SmoothFollow2D : MonoBehaviour {
         Vector3 newPos = new Vector3(target.position.x, target.position.y, transform.position.z);
         transform.position = Vector3.Lerp(transform.position, newPos, (smoothing * 0.001f));
     }
+
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
+    }
 }

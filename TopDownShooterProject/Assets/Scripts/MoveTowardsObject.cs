@@ -9,6 +9,7 @@ public class MoveTowardsObject : MonoBehaviour {
 
     private void Update()
     {
+
         if (target != null)
         {
             Vector3 currentPos = transform.position;
@@ -16,14 +17,7 @@ public class MoveTowardsObject : MonoBehaviour {
 
             float dist = Vector3.Distance(transform.position, target.position);
 
-            if (dist < 1)
-            {
-
-            }
-            else 
-            {
-                transform.position = Vector3.MoveTowards(currentPos, targetPos, speed * 0.01f);
-            }
+            transform.position = Vector3.MoveTowards(currentPos, targetPos, speed * 0.01f);
         }
 
         
