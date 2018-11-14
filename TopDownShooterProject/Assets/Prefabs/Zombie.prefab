@@ -157,8 +157,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   smoothType: 0
-  subdivisions: 4
-  iterations: 2
+  subdivisions: 0
+  iterations: 10
   strength: 0.5
   uniformLength: 0
   maxSegmentLength: 2
@@ -370,7 +370,7 @@ SpriteRenderer:
   m_SortingLayerID: 280562351
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 02a223050d6827d43979e43ffcd302e5, type: 3}
+  m_Sprite: {fileID: 21300020, guid: fd2b0af59dcc07e448ecb3bf8894e896, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
