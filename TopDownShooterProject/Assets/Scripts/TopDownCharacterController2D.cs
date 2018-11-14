@@ -5,20 +5,32 @@ using UnityEngine;
 public class TopDownCharacterController2D : MonoBehaviour {
 
     [SerializeField] float speed = 5.0f;
-    Rigidbody2D rigidbody2D;
+    Rigidbody2D myRigidBody2D;
 
 	// Use this for initialization
 	void Start ()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        myRigidBody2D = GetComponent<Rigidbody2D>();
 	}
 
     private void FixedUpdate()
     {
-        float x = Input.GetAxis("Horizontal");
-        float y = Input.GetAxis("Vertical");
+        float forwardThrusterInput = Input.GetAxis("Horizontal");
+        float sideThrusterInput = Input.GetAxis("Vertical");
 
-        rigidbody2D.velocity = new Vector2(x, y) * speed;
-        rigidbody2D.angularVelocity = 0.0f;
+        Vector2 newVelocity = new Vector2(speed * forwardThrusterInput, speed * sideThrusterInput);
+
+        myRigidBody2D.AddForce(newVelocity);
+
+        //if (forwardThrusterInput != 0)
+        //{
+        //    myRigidBody2D.AddForce(transform.right * speed * forwardThrusterInput);
+        //}
+        //if (sideThrusterInput != 0)
+        //{
+        //    myRigidBody2D.AddForce(transform.up * speed * sideThrusterInput);
+        //}
+
+        myRigidBody2D.angularVelocity = 0.0f;
     }
 }
