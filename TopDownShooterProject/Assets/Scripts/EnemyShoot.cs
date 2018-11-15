@@ -4,26 +4,46 @@ using UnityEngine;
 
 public class EnemyShoot : MonoBehaviour {
 
-    public Transform turret;
-    public float maxDistance = 100f;
-    float originOffSet = 0.5f;
+    public Transform gunEnd;
+    public float maxRange = 5f;
+    public GameObject bulletPrefab;
+    public Transform bulletSpawn;
+    public float reloadTime = 0.5f;
 
-    //public static RaycastHit2D Raycast(Vector2 origin, Vector2 direction, float distance = Mathf.Infinity, int layerMask = DefaultRaycastLayers, float minDepth = -Mathf.Infinity, float maxDepth = Mathf.Infinity);
 
-    // Use this for initialization
-    void Start () {
+    private bool isFiring = false;
 
-	}
+    private void SetNotFiring()
+    {
+        isFiring = false;
+    }
 	
 	// Update is called once per frame
 	void Update () {
 
-        RaycastHit2D hit = Physics2D.Raycast(turret.position, turret.up, Mathf.Infinity);
-        Debug.DrawRay(turret.position, turret.up, Color.red);
+        RaycastHit2D hit = Physics2D.Raycast(gunEnd.position, gunEnd.up, maxRange);
+        Debug.DrawRay(gunEnd.position, gunEnd.up, Color.red);
 
-        if (hit.collider != null)
+        if (hit.collider != null) 
         {
-            Debug.Log("I hit" + hit.collider.name);
+            if (hit.collider.tag == "Player" && !isFiring)
+            {
+                Fire();
+                Debug.Log("I hit" + hit.collider.name);
+            }
         }
 	}
+
+    private void Fire()
+    {
+        isFiring = true;
+        Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
+
+        if (GetComponent<AudioSource>() != null)
+        {
+            GetComponent<AudioSource>().Play();
+        }
+
+        Invoke("SetNotFiring", reloadTime);
+    }
 }
