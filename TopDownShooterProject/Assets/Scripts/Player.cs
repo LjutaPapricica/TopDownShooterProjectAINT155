@@ -16,13 +16,16 @@ public class Player : MonoBehaviour {
 
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (gunAnim != null)
         {
-            gunAnim.SetBool("isFiring", true);
-        }
-        else
-        {
-            gunAnim.SetBool("isFiring", false);
+            if (Input.GetMouseButton(0))
+            {
+                gunAnim.SetBool("isFiring", true);
+            }
+            else
+            {
+                gunAnim.SetBool("isFiring", false);
+            }
         }
     }
 

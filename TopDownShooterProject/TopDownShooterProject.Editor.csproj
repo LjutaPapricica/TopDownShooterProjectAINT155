@@ -348,8 +348,15 @@
     <Reference Include="Boo.Lang">
       <HintPath>Library\UnityAssemblies\Boo.Lang.dll</HintPath>
     </Reference>
+    <Reference Include="Pathfinding.Ionic.Zip.Reduced">
+      <HintPath>Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="TopDownShooterProject.csproj">
+      <Project>{60ECEC03-4598-1453-20AD-0FF4D2A0879A}</Project>
+      <Name>TopDownShooterProject</Name>
+    </ProjectReference>
     <ProjectReference Include="TopDownShooterProject.csproj">
       <Project>{60ECEC03-4598-1453-20AD-0FF4D2A0879A}</Project>
       <Name>TopDownShooterProject</Name>
@@ -359,6 +366,17 @@
     <Compile Include="C:\Users\sskillman\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.standardevents@1.0.13\Editor\Importer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.cginc" />
+    <None Include="Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.shader" />
+    <None Include="Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\Editor\EditorAssets\Materials\NavmeshOutline.shader" />
+    <None Include="Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\ExampleScenes\Materials\DiffuseAlwaysVisible.shader" />
+    <None Include="Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\ExampleScenes\Materials\Projector Light.shader" />
+    <None Include="Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\ExampleScenes\_Example Scenes.txt" />
+    <None Include="Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\Plugins\DotNetZip\DotNetZipLicense.txt" />
+    <None Include="Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\Plugins\dependencies.txt" />
+    <None Include="Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\Readme.txt" />
+    <None Include="Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\Readme_upgrading.txt" />
+    <None Include="Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\link.xml" />
     <None Include="C:\Users\sskillman\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Styles\Main_Dark.uss" />
     <None Include="C:\Users\sskillman\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Styles\Main_Light.uss" />
     <None Include="C:\Users\sskillman\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.package-manager-ui@1.8.8\Editor\Resources\Templates\Alert.uxml" />
