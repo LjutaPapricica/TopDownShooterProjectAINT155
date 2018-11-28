@@ -9,6 +9,7 @@ public class EnemyShoot : MonoBehaviour {
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public float reloadTime = 0.5f;
+    public bool seePlayer = false;
 
 
     private bool isFiring = false;
@@ -17,9 +18,14 @@ public class EnemyShoot : MonoBehaviour {
     {
         isFiring = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void Start()
+    {
+        EnemyPathFinder thePathFinder = GetComponent<EnemyPathFinder>();
+    }
+
+    // Update is called once per frame
+    void Update () {
 
         RaycastHit2D hit = Physics2D.Raycast(gunEnd.position, gunEnd.up, maxRange);
         Debug.DrawRay(gunEnd.position, gunEnd.up, Color.red);
@@ -30,9 +36,24 @@ public class EnemyShoot : MonoBehaviour {
             {
                 Fire();
                 Debug.Log("I hit" + hit.collider.name);
+            } 
+
+            if (hit.collider.tag == "Player")
+            {
+                seePlayer = true;
+            }
+            else
+            {
+                seePlayer = false;
             }
         }
 	}
+
+    private void StartMoving()
+    {
+
+    }
+
 
     private void Fire()
     {
@@ -45,5 +66,10 @@ public class EnemyShoot : MonoBehaviour {
         }
 
         Invoke("SetNotFiring", reloadTime);
+    }
+
+    public bool GetSeePlayer()
+    {
+        return seePlayer;
     }
 }

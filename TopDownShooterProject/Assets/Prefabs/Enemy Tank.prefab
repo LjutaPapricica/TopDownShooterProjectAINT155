@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 61664713540985472}
   m_Layer: 9
   m_Name: Enemy Tank
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -254,9 +254,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1835305828746966}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.42, y: -22.04, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0.21447586, w: -0.97672933}
+  m_LocalPosition: {x: 13.33, y: 1.15, z: 0}
+  m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1}
   m_Children:
   - {fileID: 4260478690324234}
   - {fileID: 4649064228846798}
@@ -346,6 +346,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  seePlayer: 0
+  isMoving: 0
 --- !u!114 &114190325878850938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -372,13 +374,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  smoothType: 1
-  subdivisions: 2
-  iterations: 4
+  smoothType: 0
+  subdivisions: 4
+  iterations: 5
   strength: 0.5
   uniformLength: 0
-  maxSegmentLength: 2
-  bezierTangentLength: 0.4
+  maxSegmentLength: 5
+  bezierTangentLength: 0.1
   offset: 0.2
   factor: 0.1
 --- !u!114 &114541932172131936
@@ -555,6 +557,7 @@ MonoBehaviour:
     type: 2}
   bulletSpawn: {fileID: 4838489049854040}
   reloadTime: 0.5
+  seePlayer: 0
 --- !u!114 &114988304320618010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -572,6 +575,7 @@ MonoBehaviour:
     type: 2}
   bulletSpawn: {fileID: 4851810587086706}
   reloadTime: 0.5
+  seePlayer: 0
 --- !u!212 &212027251964781760
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -605,7 +609,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 280562351
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300022, guid: fd2b0af59dcc07e448ecb3bf8894e896, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -650,7 +654,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 280562351
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300028, guid: fd2b0af59dcc07e448ecb3bf8894e896, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -695,7 +699,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 280562351
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300026, guid: fd2b0af59dcc07e448ecb3bf8894e896, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -740,7 +744,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 280562351
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300024, guid: fd2b0af59dcc07e448ecb3bf8894e896, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
