@@ -17,7 +17,7 @@ TagManager:
   - Enemy Health
   - Player Health
   - Enemy Damage
-  - 
+  - Pickup
   - 
   - 
   - 
@@ -44,11 +44,17 @@ TagManager:
   - name: Ground
     uniqueID: 521559503
     locked: 0
+  - name: Ground Details
+    uniqueID: 4198677173
+    locked: 0
   - name: Player
     uniqueID: 1587884575
     locked: 0
   - name: Enemies
     uniqueID: 280562351
+    locked: 0
+  - name: Pickup
+    uniqueID: 127989471
     locked: 0
   - name: FX
     uniqueID: 1616208421

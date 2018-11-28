@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TopDownCharacterController2D : MonoBehaviour {
 
-    [SerializeField] float speed = 5.0f;
+    public float speed = 5.0f;
     Rigidbody2D myRigidBody2D;
 
 	// Use this for initialization
