@@ -6,20 +6,24 @@ using UnityEngine.UI;
 public class GameUI : MonoBehaviour {
 
     public Slider healthBar;
+    public Slider ammoBar;
     public Text scoreText;
 
     public int playerScore = 0;
 
     private void OnEnable()
     {
-        Player.OnUpdateHealth += UpdateHealthBar;
+        Player.OnUpdateHealth += UpdateHealthBar;        
         AddScore.OnSendScore += UpdateScore;
+        Player.OnUpdateAmmoCount += UpdateAmmoCount;
+
     }
 
     private void OnDisable()
     {
         Player.OnUpdateHealth -= UpdateHealthBar;
         AddScore.OnSendScore -= UpdateScore;
+        Player.OnUpdateAmmoCount -= UpdateAmmoCount;
     }
 
     private void UpdateHealthBar(int health)
@@ -31,5 +35,10 @@ public class GameUI : MonoBehaviour {
     {
         playerScore += theScore;
         scoreText.text = "SCORE: " + playerScore.ToString();
+    }
+
+    private void UpdateAmmoCount(int theAmmoCount)
+    {
+        ammoBar.value = theAmmoCount;
     }
 }

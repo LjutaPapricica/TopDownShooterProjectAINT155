@@ -7,6 +7,9 @@ public class Player : MonoBehaviour {
     public delegate void UpdateHealth(int newHealth);
     public static event UpdateHealth OnUpdateHealth;
 
+    public delegate void UpdateAmmoCount(int newAmmoCount);
+    public static event UpdateAmmoCount OnUpdateAmmoCount;
+
     private Animator gunAnim;
 
     private void Start()
@@ -34,6 +37,14 @@ public class Player : MonoBehaviour {
         if (OnUpdateHealth != null)
         {
             OnUpdateHealth(health);
+        }
+    }
+
+    public void SendAmmoData(int ammoCount)
+    {
+        if (OnUpdateAmmoCount != null)
+        {
+            OnUpdateAmmoCount(ammoCount);
         }
     }
 }
