@@ -7,10 +7,17 @@ public class Weapon : MonoBehaviour {
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public Event OnFireEvent;
+    public AudioClip firingSound;
+    private AudioSource myAudioSource;
     public float fireTime = 0.5f;
     public int ammoCount = 50;
 
     private bool isFiring = false;
+
+    private void Start()
+    {
+        myAudioSource = GetComponent<AudioSource>();
+    }
 
     private void SetFiring()
     {
@@ -25,10 +32,7 @@ public class Weapon : MonoBehaviour {
         ammoCount--;
         GetComponent<Player>().SendAmmoData(ammoCount);
 
-        if (GetComponent<AudioSource>() != null)
-        {
-            GetComponent<AudioSource>().Play();
-        }
+        myAudioSource.PlayOneShot(firingSound);
 
         Invoke("SetFiring", fireTime);
     }

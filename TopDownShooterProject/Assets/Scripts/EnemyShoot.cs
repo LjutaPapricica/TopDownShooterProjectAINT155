@@ -10,6 +10,8 @@ public class EnemyShoot : MonoBehaviour {
     public Transform bulletSpawn;
     public float reloadTime = 0.5f;
     public bool seePlayer = false;
+    private AudioSource myAudioSource;
+    public AudioClip shootSound;
 
 
     private bool isFiring = false;
@@ -22,6 +24,7 @@ public class EnemyShoot : MonoBehaviour {
     private void Start()
     {
         EnemyPathFinder thePathFinder = GetComponent<EnemyPathFinder>();
+        myAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -49,21 +52,12 @@ public class EnemyShoot : MonoBehaviour {
         }
 	}
 
-    private void StartMoving()
-    {
-
-    }
-
 
     private void Fire()
     {
         isFiring = true;
         Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
-
-        if (GetComponent<AudioSource>() != null)
-        {
-            GetComponent<AudioSource>().Play();
-        }
+        myAudioSource.PlayOneShot(shootSound);
 
         Invoke("SetNotFiring", reloadTime);
     }

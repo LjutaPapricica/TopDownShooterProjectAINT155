@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 114717209666252472}
   - component: {fileID: 114360236075380106}
   - component: {fileID: 61664713540985472}
+  - component: {fileID: 82440790856486676}
   m_Layer: 9
   m_Name: Enemy Tank
   m_TagString: Enemy
@@ -334,6 +335,110 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.87333333, y: 0.82706356}
   m_EdgeRadius: 0
+--- !u!82 &82440790856486676
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1835305828746966}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 0.3
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 100
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.20263672
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.105047554
+      value: 0.13146749
+      inSlope: -1.7854
+      outSlope: -1.7854
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.14379883
+      value: 0
+      inSlope: -1.3120972
+      outSlope: -1.3120972
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.6379101
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.06637192
+      value: 0.99674606
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.07079506
+      value: 1.0000038
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!114 &114185468670223116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -346,8 +451,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
+  movementSound:
+  - {fileID: 8300000, guid: 0641b3f3381478d4786222807da39919, type: 3}
+  - {fileID: 8300000, guid: bd201b6bdce38e94ba9e716cf912f974, type: 3}
   seePlayer: 0
   isMoving: 0
+  isPlayingSound: 0
 --- !u!114 &114190325878850938
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -540,6 +649,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c639b3a93b83f774b9f5f2018a649c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyedSound: {fileID: 8300000, guid: 2d2915cd684ad63478447651bb68ceac, type: 3}
 --- !u!114 &114977506126157760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -556,8 +666,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1417130200339926, guid: 86d9f353ef334d248b5325e42a8a91f4,
     type: 2}
   bulletSpawn: {fileID: 4838489049854040}
-  reloadTime: 0.5
+  reloadTime: 2
   seePlayer: 0
+  shootSound: {fileID: 8300000, guid: fc69b087ef143fb4eb5ca9a45c575570, type: 3}
 --- !u!114 &114988304320618010
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -574,8 +685,9 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1417130200339926, guid: 86d9f353ef334d248b5325e42a8a91f4,
     type: 2}
   bulletSpawn: {fileID: 4851810587086706}
-  reloadTime: 0.5
+  reloadTime: 2
   seePlayer: 0
+  shootSound: {fileID: 8300000, guid: 8aeac6f9985629c4c930cfbba04ba7d9, type: 3}
 --- !u!212 &212027251964781760
 SpriteRenderer:
   m_ObjectHideFlags: 1

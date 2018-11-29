@@ -10,7 +10,9 @@ public class EnemyPathFinder : MonoBehaviour {
     private AILerp aiLerp;
     private Rigidbody2D rb;
     private EnemyShoot es;
-    public bool seePlayer, isMoving;
+    private AudioSource myAudioSource;
+    public AudioClip[] movementSound;
+    public bool seePlayer, isMoving, isPlayingSound;
     private float time = 0f, stationaryTimeOut;
 
     private void Start()
@@ -19,6 +21,7 @@ public class EnemyPathFinder : MonoBehaviour {
         aiLerp =  GetComponent<AILerp>();
         rb = GetComponent<Rigidbody2D>();
         es = GetComponent<EnemyShoot>();
+        myAudioSource = GetComponent<AudioSource>();
 
         isMoving = aiLerp.canMove;
         stationaryTimeOut = Random.Range(1f, 5f);
@@ -55,6 +58,19 @@ public class EnemyPathFinder : MonoBehaviour {
                 
             }
 
+
+        }
+
+        if (isMoving && !isPlayingSound)
+        {
+            isPlayingSound = true;
+            myAudioSource.clip = movementSound[Random.Range(0, movementSound.Length - 1)];
+            myAudioSource.Play();
+        }
+        else if (!isMoving && isPlayingSound)
+        {
+            myAudioSource.Stop();
+            isPlayingSound = false;
         }
 
     }
