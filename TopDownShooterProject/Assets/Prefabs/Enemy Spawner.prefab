@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c639b3a93b83f774b9f5f2018a649c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyedSound: {fileID: 0}
 --- !u!114 &114547134409998040
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -124,6 +125,8 @@ MonoBehaviour:
   prefabToSpawn: {fileID: 1835305828746966, guid: 7e38a05eba3df0e42a8f5a2387c0b3b1,
     type: 2}
   adjustmentAngle: 0
+  maxNumOfSpawns: 20
+  parentTransform: {fileID: 0}
 --- !u!114 &114809315763285266
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -190,7 +193,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 280562351
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 36b0644b067cb0549bac0bd7f8d59028, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

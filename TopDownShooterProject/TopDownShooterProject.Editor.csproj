@@ -348,9 +348,6 @@
     <Reference Include="Boo.Lang">
       <HintPath>Library\UnityAssemblies\Boo.Lang.dll</HintPath>
     </Reference>
-    <Reference Include="AstarPathfindingProject">
-      <HintPath>Library\ScriptAssemblies\AstarPathfindingProject.dll</HintPath>
-    </Reference>
     <Reference Include="Pathfinding.Ionic.Zip.Reduced">
       <HintPath>Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\Plugins\DotNetZip\Pathfinding.Ionic.Zip.Reduced.dll</HintPath>
     </Reference>
@@ -366,9 +363,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\PackageTools\Editor\EditorBase.cs" />
-    <Compile Include="Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\PackageTools\Editor\EditorGUIx.cs" />
-    <Compile Include="Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\PackageTools\Editor\EnumFlagDrawer.cs" />
+    <Compile Include="C:\Users\sskillman\AppData\Local\Unity\cache\packages\packages.unity.com\com.unity.standardevents@1.0.13\Editor\Importer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Pathfinding\Pathfinding ToolKit\AstarPathfindingProject\Editor\EditorAssets\Materials\Navmesh.cginc" />

@@ -6,6 +6,9 @@ public class Spawner : MonoBehaviour {
 
     public GameObject prefabToSpawn;
     public float adjustmentAngle = 0f;
+    public int maxNumOfSpawns = 10;
+
+    public Transform parentTransform;
 
     public void Spawn()
     {
@@ -14,6 +17,17 @@ public class Spawner : MonoBehaviour {
 
         Quaternion rotationInRadians = Quaternion.Euler(rotationinDegrees);
 
-        Instantiate(prefabToSpawn, transform.position, rotationInRadians);
+        if(parentTransform != null)
+        {
+            if(parentTransform.childCount < maxNumOfSpawns)
+            {
+                Instantiate(prefabToSpawn, transform.position, rotationInRadians, parentTransform);
+            }            
+        }
+        else
+        {
+            Instantiate(prefabToSpawn, transform.position, rotationInRadians);
+        }
+        
     }
 }

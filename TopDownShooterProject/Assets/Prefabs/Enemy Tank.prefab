@@ -503,7 +503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db797ac629b8bc4ebd9632c46e5e23b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 20
   onDie:
     m_PersistentCalls:
       m_Calls:
@@ -539,6 +539,8 @@ MonoBehaviour:
   prefabToSpawn: {fileID: 1110247712896084, guid: 3e0c9513ed95baf4cb5c9c42baa5f048,
     type: 2}
   adjustmentAngle: -90
+  maxNumOfSpawns: 10
+  parentTransform: {fileID: 0}
 --- !u!114 &114598454042843110
 MonoBehaviour:
   m_ObjectHideFlags: 1

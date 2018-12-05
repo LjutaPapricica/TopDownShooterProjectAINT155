@@ -8,7 +8,11 @@ public class DestroyOnDie : MonoBehaviour {
 
     public void Die()
     {
-        AudioSource.PlayClipAtPoint(destroyedSound, transform.position);
+        if (destroyedSound != null)
+        {
+            AudioSource.PlayClipAtPoint(destroyedSound, transform.position);
+        }
+
         Destroy(gameObject);
     }
 }
