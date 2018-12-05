@@ -57,7 +57,7 @@ public class EnemyShoot : MonoBehaviour {
     {
         isFiring = true;
         Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
-        myAudioSource.PlayOneShot(shootSound);
+        myAudioSource.PlayOneShot(shootSound, 0.2f);
 
         Invoke("SetNotFiring", reloadTime);
     }
