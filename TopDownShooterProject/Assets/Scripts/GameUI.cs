@@ -8,6 +8,7 @@ public class GameUI : MonoBehaviour {
     public Slider healthBar;
     public Slider ammoBar;
     public Text scoreText;
+    public Text weaponsText;
 
     public int playerScore = 0;
 
@@ -41,4 +42,5 @@ public class GameUI : MonoBehaviour {
     {
         ammoBar.value = theAmmoCount;
     }
+    
 }

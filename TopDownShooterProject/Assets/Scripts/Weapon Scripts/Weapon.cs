@@ -12,12 +12,13 @@ public class Weapon : MonoBehaviour {
     private WeaponManager myWeaponManager;
     public float fireTime = 0.5f;
     public int shotAmmoValue = 1;
+    public int heatValue = 1;
 
     private bool isFiring = false;
 
     private void Start()
     {
-        myAudioSource = GetComponent<AudioSource>();
+        myAudioSource = transform.parent.parent.GetComponent<AudioSource>();
         myWeaponManager = transform.parent.GetComponent<WeaponManager>();        
     }
 
@@ -37,6 +38,8 @@ public class Weapon : MonoBehaviour {
 
         myWeaponManager.DecreaseAmmoCount(shotAmmoValue);
 
+        myWeaponManager.IncreaseWeaponHeat(heatValue);
+
         myAudioSource.PlayOneShot(firingSound);
 
         Invoke("SetFiring", fireTime);
@@ -46,7 +49,7 @@ public class Weapon : MonoBehaviour {
 	void Update () {
 		if (Input.GetMouseButton(0))
         {
-            if (!isFiring && (myWeaponManager.GetAmmoCount() > 0))
+            if (!isFiring && (myWeaponManager.GetAmmoCount() > 0) && (myWeaponManager.GetWeaponHeat()))
             {
                 Fire();
             }

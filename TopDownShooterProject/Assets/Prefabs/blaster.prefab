@@ -49,7 +49,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1390339270669980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.6507251, y: 2.628082, z: -6.926272}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4392790195424342}
@@ -83,7 +83,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1030852087553136, guid: e2ca0bb75db0bfb4789ac19e882440ec,
     type: 2}
   bulletSpawn:
-  - {fileID: 4392790195424342}
-  firingSound: {fileID: 0}
+  - {fileID: 0}
+  firingSound: {fileID: 8300000, guid: 60f2332a096eafb42bab821e04388c7c, type: 3}
   fireTime: 0.5
   shotAmmoValue: 10
+  heatValue: 1

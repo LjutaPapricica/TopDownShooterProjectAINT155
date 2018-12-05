@@ -30,6 +30,7 @@
  **********************************************************/
 
 using UnityEngine;
+using System.Collections;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -40,8 +41,16 @@ public class WeaponManager : MonoBehaviour
      */
 
     private Player thePlayer;
-    public bool isFireMultiple = false;
-    public Transform[] weaponhardpoints;
+    public bool isShootMultiple = false;
+    private int currentWeaponIdex = 0;
+    public Transform[] weaponHardpoints;
+    public float maxHeatThreshold = 20f;
+    public float currentheat = 0f;
+    public float coolDownDelay = 3f;
+    public float time = 0f;
+    public float coolDownRatePerSecond = 5f;
+    public bool isCoolingDown = false;
+    private bool canWeaponFire = true;
 
     [SerializeField] int ammoCount = 1000;
 
@@ -67,21 +76,27 @@ public class WeaponManager : MonoBehaviour
          * if the index is less than the total weapons we have, we can select it
          * see link: https://docs.unity3d.com/ScriptReference/Transform-childCount.html
          */
-        if (index < transform.childCount)
+        
+        if (index >= transform.childCount)
         {
+            index = 0;
+        }
+
+        currentWeaponIdex = index;
+
             /*
              * LOOP THROUGH ALL WEAPONS AND ACTIVATE THE ONE AT index AND DEACTIVATE THE REST
              * we will loop through all of the weapons we have, activate the GAmeObject on the one at "index"
              * and deactivate the rest of the weapons
              * NOTE: we are looping through all of the child GameObjects inside of the WeaponManager
-             */ 
+             */
             for (int i = 0; i < transform.childCount; i++)
             {
                 /*
                  * SELECT THE WEAPON AT index
                  * if we find the weapon at index (our selected weapon) we activate it's GameObject
-                 */ 
-                if (i == index || isFireMultiple)
+                 */
+                if (i == index || isShootMultiple)
                 {
                     /*
                      * ACTIVATE THE WEAPON GAMEOBJECT
@@ -100,7 +115,7 @@ public class WeaponManager : MonoBehaviour
                     transform.GetChild(i).gameObject.SetActive(false);
                 }
             }
-        }
+        
     }
 
 
@@ -118,7 +133,7 @@ public class WeaponManager : MonoBehaviour
          * the WeaponManager's transform will be the parent of the weapon in the Hierarchy
          * see link: https://docs.unity3d.com/ScriptReference/Object.Instantiate.html
          */
-        GameObject weapon = Instantiate(prefab, weaponhardpoints[0].position, weaponhardpoints[0].rotation, transform);
+        GameObject weapon = Instantiate(prefab, weaponHardpoints[0].position, weaponHardpoints[0].rotation, transform);
 
         /*
          * CHANGE WEAPON TO THE NEW WEAPON
@@ -143,6 +158,8 @@ public class WeaponManager : MonoBehaviour
      */
     private void Update()
     {
+        time += Time.deltaTime;
+
         /*
          * CHANGE TO WEAPON 0 WHEN KEY 1 IS PRESSED
          * when the keyboard key 1 is pressed, change to the first weapon (wepaon 0)
@@ -170,15 +187,26 @@ public class WeaponManager : MonoBehaviour
             ChangeWeapon(2); // change to weapon 2
         }
 
-        if (Input.GetKey(KeyCode.LeftControl))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
-            isFireMultiple = true;
+            ChangeWeapon(currentWeaponIdex + 1);
         }
 
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isShootMultiple = true;
+        }
         else
         {
-            isFireMultiple = false;
+            isShootMultiple = false;
         }
+
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            time = 0;
+        }
+
+        WeaponCoolDown();
 
     }
 
@@ -192,5 +220,40 @@ public class WeaponManager : MonoBehaviour
     public int GetAmmoCount()
     {
         return ammoCount;
+    }
+
+    public void IncreaseWeaponHeat(int heatValue)
+    {
+        currentheat = Mathf.Clamp(currentheat + heatValue, 0f, maxHeatThreshold);
+    }
+
+    private void WeaponCoolDown()
+    {
+        if (time > coolDownDelay && !isCoolingDown)
+        {
+            isCoolingDown = true;
+            StartCoroutine(WeaponCooling());
+        }
+    }
+
+    IEnumerator WeaponCooling()
+    {
+        currentheat = Mathf.Clamp(currentheat - coolDownRatePerSecond, 0f, maxHeatThreshold);
+        yield return new WaitForSeconds(1);
+        isCoolingDown = false;
+    }
+
+    public bool GetWeaponHeat()
+    {
+        if (currentheat >= maxHeatThreshold)
+        {
+            canWeaponFire = false;
+        }
+        else
+        {
+            canWeaponFire = true;
+        }
+
+        return canWeaponFire;
     }
 }
