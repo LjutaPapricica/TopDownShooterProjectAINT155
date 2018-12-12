@@ -42,5 +42,7 @@ public class GameUI : MonoBehaviour {
     {
         ammoBar.value = theAmmoCount;
     }
+
+    private void UpdateCoolDown()
     
 }

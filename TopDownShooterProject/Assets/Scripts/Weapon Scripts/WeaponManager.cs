@@ -201,11 +201,6 @@ public class WeaponManager : MonoBehaviour
             isShootMultiple = false;
         }
 
-        if (Input.GetKey(KeyCode.Mouse0))
-        {
-            time = 0;
-        }
-
         WeaponCoolDown();
 
     }
@@ -225,6 +220,7 @@ public class WeaponManager : MonoBehaviour
     public void IncreaseWeaponHeat(int heatValue)
     {
         currentheat = Mathf.Clamp(currentheat + heatValue, 0f, maxHeatThreshold);
+        time = 0;
     }
 
     private void WeaponCoolDown()
