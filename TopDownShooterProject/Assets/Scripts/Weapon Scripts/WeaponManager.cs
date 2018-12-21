@@ -45,7 +45,7 @@ public class WeaponManager : MonoBehaviour
     private int currentWeaponIdex = 0;
     public Transform[] weaponHardpoints;
     public float maxHeatThreshold = 20f;
-    public float currentheat = 0f;
+    public float currentHeat = 0f;
     public float coolDownDelay = 3f;
     public float time = 0f;
     public float coolDownRatePerSecond = 5f;
@@ -219,8 +219,10 @@ public class WeaponManager : MonoBehaviour
 
     public void IncreaseWeaponHeat(int heatValue)
     {
-        currentheat = Mathf.Clamp(currentheat + heatValue, 0f, maxHeatThreshold);
+        currentHeat = Mathf.Clamp(currentHeat + heatValue, 0f, maxHeatThreshold);
         time = 0;
+
+        thePlayer.SendWeaponHeatData(currentHeat);
     }
 
     private void WeaponCoolDown()
@@ -230,18 +232,20 @@ public class WeaponManager : MonoBehaviour
             isCoolingDown = true;
             StartCoroutine(WeaponCooling());
         }
+
+        thePlayer.SendWeaponHeatData(currentHeat);
     }
 
     IEnumerator WeaponCooling()
     {
-        currentheat = Mathf.Clamp(currentheat - coolDownRatePerSecond, 0f, maxHeatThreshold);
+        currentHeat = Mathf.Clamp(currentHeat - coolDownRatePerSecond, 0f, maxHeatThreshold);
         yield return new WaitForSeconds(1);
         isCoolingDown = false;
     }
 
     public bool GetWeaponHeat()
     {
-        if (currentheat >= maxHeatThreshold)
+        if (currentHeat >= maxHeatThreshold)
         {
             canWeaponFire = false;
         }

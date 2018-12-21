@@ -7,6 +7,7 @@ public class GameUI : MonoBehaviour {
 
     public Slider healthBar;
     public Slider ammoBar;
+    public Slider weaponHeatBar;
     public Text scoreText;
     public Text weaponsText;
 
@@ -17,6 +18,7 @@ public class GameUI : MonoBehaviour {
         Player.OnUpdateHealth += UpdateHealthBar;        
         AddScore.OnSendScore += UpdateScore;
         Player.OnUpdateAmmoCount += UpdateAmmoCount;
+        Player.OnUpdateWeaponHeat += UpdateWeaponHeat;
 
     }
 
@@ -25,6 +27,7 @@ public class GameUI : MonoBehaviour {
         Player.OnUpdateHealth -= UpdateHealthBar;
         AddScore.OnSendScore -= UpdateScore;
         Player.OnUpdateAmmoCount -= UpdateAmmoCount;
+        Player.OnUpdateWeaponHeat -= UpdateWeaponHeat;
     }
 
     private void UpdateHealthBar(int health)
@@ -43,6 +46,9 @@ public class GameUI : MonoBehaviour {
         ammoBar.value = theAmmoCount;
     }
 
-    private void UpdateCoolDown()
+    private void UpdateWeaponHeat(float theWeaponHeat)
+    {
+        weaponHeatBar.value = 50 -theWeaponHeat;
+    }
     
 }

@@ -10,6 +10,9 @@ public class Player : MonoBehaviour {
     public delegate void UpdateAmmoCount(int newAmmoCount);
     public static event UpdateAmmoCount OnUpdateAmmoCount;
 
+    public delegate void UpdateWeaponHeat(float newWeaponHeat);
+    public static event UpdateWeaponHeat OnUpdateWeaponHeat;
+
     private Animator gunAnim;
 
     private void Start()
@@ -45,6 +48,14 @@ public class Player : MonoBehaviour {
         if (OnUpdateAmmoCount != null)
         {
             OnUpdateAmmoCount(ammoCount);
+        }
+    }
+
+    public void SendWeaponHeatData(float weaponHeat)
+    {
+        if (OnUpdateWeaponHeat != null)
+        {
+            OnUpdateWeaponHeat(weaponHeat);
         }
     }
 }
