@@ -2,21 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class OnDamagedEvent : UnityEvent<int> { }
 
 public class HealthSystem : MonoBehaviour {
 
-    public int health = 10;
+    private int health;
     public UnityEvent onDie;
     public OnDamagedEvent onDamaged;
 
-    private int maxHealth;
+    public int startingHealth = 10;
 
     private void Start()
     {
-        maxHealth = health;
+        health = startingHealth;
     }
 
 
@@ -34,15 +35,20 @@ public class HealthSystem : MonoBehaviour {
 
     public void AddHealth(int newHealth)
     {
-        if (health + newHealth > maxHealth)
+        if (health + newHealth > startingHealth)
         {
-            health = maxHealth;
+            health = startingHealth;
         }
         else
         {
             health += newHealth;
         }
 
-        onDamaged.Invoke(health);
+        onDamaged.Invoke(health);        
+    }
+
+    public int GetMaxHealth()
+    {
+        return startingHealth;
     }
 }

@@ -1,33 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class Weapon : MonoBehaviour {
-
+    
     public GameObject bulletPrefab;
     public Transform[] bulletSpawn;
     public Event OnFireEvent;
     public AudioClip firingSound;
-    private AudioSource myAudioSource;
-    private WeaponManager myWeaponManager;
+    protected AudioSource myAudioSource;
+
+    protected WeaponManager myWeaponManager;
+    protected WeaponHeatSystem myWeaponHeatSystem;
+    protected AmmoSystem myAmmoSystem;
+
     public float fireTime = 0.5f;
+
     public int shotAmmoValue = 1;
     public int heatValue = 1;
 
-    private bool isFiring = false;
+    protected bool isFiring = false;
 
-    private void Start()
+    protected void Start()
     {
-        myAudioSource = transform.parent.parent.GetComponent<AudioSource>();
-        myWeaponManager = transform.parent.GetComponent<WeaponManager>();        
+        myAudioSource = GetComponent<AudioSource>();
+        myWeaponManager = transform.parent.GetComponent<WeaponManager>();       
+        myWeaponHeatSystem = transform.parent.GetComponent<WeaponHeatSystem>();
+        myAmmoSystem = transform.parent.GetComponent<AmmoSystem>();
     }
 
-    private void SetFiring()
+    protected void SetFiring()
     {
         isFiring = false;
     }
 
-    private void Fire()
+    protected virtual void Fire()
     {
         isFiring = true;
 
@@ -36,23 +45,29 @@ public class Weapon : MonoBehaviour {
             Instantiate(bulletPrefab, bulletSpawn[i].position, bulletSpawn[i].rotation);
         }
 
-        myWeaponManager.DecreaseAmmoCount(shotAmmoValue);
+        myAmmoSystem.DecreaseAmmoCount(shotAmmoValue);
 
-        myWeaponManager.IncreaseWeaponHeat(heatValue);
+        myWeaponHeatSystem.IncreaseWeaponHeat(heatValue);
 
         myAudioSource.PlayOneShot(firingSound);
 
         Invoke("SetFiring", fireTime);
     }
-    
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetMouseButton(0))
+
+    // Update is called once per frame
+    protected void Update ()
+    {
+        FireControl();
+    }
+
+    protected virtual void FireControl()
+    {
+        if (Input.GetMouseButton(0))
         {
-            if (!isFiring && (myWeaponManager.GetAmmoCount() > 0) && (myWeaponManager.GetWeaponHeat()))
+            if (!isFiring && (myAmmoSystem.GetAmmoCount() > 0) && (myWeaponHeatSystem.GetWeaponHeat()))
             {
                 Fire();
             }
         }
-	}
+    }
 }

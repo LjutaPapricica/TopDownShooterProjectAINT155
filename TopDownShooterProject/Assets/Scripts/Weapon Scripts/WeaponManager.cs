@@ -31,6 +31,7 @@
 
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class WeaponManager : MonoBehaviour
 {
@@ -39,28 +40,21 @@ public class WeaponManager : MonoBehaviour
      * see link: https://docs.unity3d.com/ScriptReference/MonoBehaviour.Start.html
      * change weapon to the first weapon (index zero)
      */
-
-    private Player thePlayer;
+     
     public bool isShootMultiple = false;
     private int currentWeaponIdex = 0;
     public Transform[] weaponHardpoints;
-    public float maxHeatThreshold = 20f;
-    public float currentHeat = 0f;
-    public float coolDownDelay = 3f;
-    public float time = 0f;
-    public float coolDownRatePerSecond = 5f;
-    public bool isCoolingDown = false;
-    private bool canWeaponFire = true;
+    public GameObject[] weapons;
+    public Text weaponUI;
 
-    [SerializeField] int ammoCount = 1000;
 
     void Start()
     {
-        thePlayer = transform.parent.GetComponent<Player>();
         /*
          * CALL CHANGE WEAPON, SELECT FIRST WEAPON
          */
         ChangeWeapon(0);
+        PrintWeaponUI();
     }
 
 
@@ -77,7 +71,7 @@ public class WeaponManager : MonoBehaviour
          * see link: https://docs.unity3d.com/ScriptReference/Transform-childCount.html
          */
         
-        if (index >= transform.childCount)
+        if (index >= weapons.Length)
         {
             index = 0;
         }
@@ -90,32 +84,34 @@ public class WeaponManager : MonoBehaviour
              * and deactivate the rest of the weapons
              * NOTE: we are looping through all of the child GameObjects inside of the WeaponManager
              */
-            for (int i = 0; i < transform.childCount; i++)
+            for (int i = 0; i < weapons.Length; i++)
             {
                 /*
                  * SELECT THE WEAPON AT index
                  * if we find the weapon at index (our selected weapon) we activate it's GameObject
                  */
-                if (i == index || isShootMultiple)
+                if (i == index)
                 {
                     /*
                      * ACTIVATE THE WEAPON GAMEOBJECT
                      * we use SetActive to activate the weapon GameObject
                      * see link: https://docs.unity3d.com/ScriptReference/GameObject.SetActive.html
                      */
-                    transform.GetChild(i).gameObject.SetActive(true);
+                    weapons[i].SetActive(true);
                 }
-                else // DEACTIVATE ALL WEAPONS NOT AT INDEX
+                else if (!isShootMultiple) // DEACTIVATE ALL WEAPONS NOT AT INDEX
                 {
                     /*
                      * DEACTIVATE THE WEAPON GAMEOBJECT
                      * here, we will use SetActive to deactivate the weapon's GameObject
                      * see link: https://docs.unity3d.com/ScriptReference/GameObject.SetActive.html
                      */
-                    transform.GetChild(i).gameObject.SetActive(false);
+                    weapons[i].SetActive(false);
                 }
             }
-        
+
+        PrintWeaponUI();
+
     }
 
 
@@ -142,7 +138,9 @@ public class WeaponManager : MonoBehaviour
          * NOTE: the sibling index get be obtined from its transform component
          * see link: https://docs.unity3d.com/ScriptReference/Transform.GetSiblingIndex.html
          */
-        ChangeWeapon(weapon.transform.GetSiblingIndex());
+        ChangeWeapon(weapons.Length - 1);
+
+        PrintWeaponUI();
     }
 
 
@@ -158,7 +156,6 @@ public class WeaponManager : MonoBehaviour
      */
     private void Update()
     {
-        time += Time.deltaTime;
 
         /*
          * CHANGE TO WEAPON 0 WHEN KEY 1 IS PRESSED
@@ -199,61 +196,20 @@ public class WeaponManager : MonoBehaviour
         else
         {
             isShootMultiple = false;
-        }
-
-        WeaponCoolDown();
+        }        
 
     }
-
-    public void DecreaseAmmoCount(int shotAmmoValue)
+    
+    private void PrintWeaponUI()
     {
-        ammoCount -= shotAmmoValue;
-
-        thePlayer.SendAmmoData(ammoCount);
-    }
-
-    public int GetAmmoCount()
-    {
-        return ammoCount;
-    }
-
-    public void IncreaseWeaponHeat(int heatValue)
-    {
-        currentHeat = Mathf.Clamp(currentHeat + heatValue, 0f, maxHeatThreshold);
-        time = 0;
-
-        thePlayer.SendWeaponHeatData(currentHeat);
-    }
-
-    private void WeaponCoolDown()
-    {
-        if (time > coolDownDelay && !isCoolingDown)
+        weaponUI.text = "Weapons:\n";
+        for (int i = 0; i < weapons.Length; i++)
         {
-            isCoolingDown = true;
-            StartCoroutine(WeaponCooling());
+            if (weapons[i].active)
+                weaponUI.text += "<color=#ffff00ff>" + (i + 1).ToString() + ". " + weapons[i].name + "</color>\n";
+            else
+                weaponUI.text += (i + 1).ToString() + ". " + weapons[i].name + "\n";
         }
-
-        thePlayer.SendWeaponHeatData(currentHeat);
     }
 
-    IEnumerator WeaponCooling()
-    {
-        currentHeat = Mathf.Clamp(currentHeat - coolDownRatePerSecond, 0f, maxHeatThreshold);
-        yield return new WaitForSeconds(1);
-        isCoolingDown = false;
-    }
-
-    public bool GetWeaponHeat()
-    {
-        if (currentHeat >= maxHeatThreshold)
-        {
-            canWeaponFire = false;
-        }
-        else
-        {
-            canWeaponFire = true;
-        }
-
-        return canWeaponFire;
-    }
 }

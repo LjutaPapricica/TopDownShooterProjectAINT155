@@ -38,8 +38,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1644651488965760}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.65, y: -16.02, z: -0.023623642}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -16.87, y: 8.13, z: -0.023623642}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -122,10 +122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 472425c80295ab94fbe2413137c96e93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 1835305828746966, guid: 7e38a05eba3df0e42a8f5a2387c0b3b1,
+  prefabToSpawn: {fileID: 1609218976059698, guid: e7a1c155e95cd6741a41aeb2f3e00281,
     type: 2}
   adjustmentAngle: 0
-  maxNumOfSpawns: 20
+  maxNumOfSpawns: 25
   parentTransform: {fileID: 0}
 --- !u!114 &114809315763285266
 MonoBehaviour:
@@ -138,7 +138,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db797ac629b8bc4ebd9632c46e5e23b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
   onDie:
     m_PersistentCalls:
       m_Calls:
@@ -160,6 +159,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: OnDamagedEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  startingHealth: 10
 --- !u!212 &212893871379601290
 SpriteRenderer:
   m_ObjectHideFlags: 1
