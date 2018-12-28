@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 212996948385714968}
   - component: {fileID: 50011528654530588}
   - component: {fileID: 114370884319509698}
+  - component: {fileID: 114050692111129092}
+  - component: {fileID: 114364635801842060}
   - component: {fileID: 58322883820404134}
   m_Layer: 8
   m_Name: Energy Ball
@@ -78,6 +80,30 @@ CircleCollider2D:
   m_Offset: {x: -0.0018116407, y: 0}
   serializedVersion: 2
   m_Radius: 0.07636309
+--- !u!114 &114050692111129092
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1417130200339926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a60979cfdcc7d14698466ece345c984, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosivityMultiplier: 0.1
+--- !u!114 &114364635801842060
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1417130200339926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c639b3a93b83f774b9f5f2018a649c04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyedSound: {fileID: 0}
 --- !u!114 &114370884319509698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -91,6 +117,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 700
   damage: 5
+  OnDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 114050692111129092}
+        m_MethodName: Explosion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114364635801842060}
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!212 &212996948385714968
 SpriteRenderer:
   m_ObjectHideFlags: 1

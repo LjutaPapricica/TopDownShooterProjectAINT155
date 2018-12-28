@@ -38,7 +38,6 @@ public class EnemyShoot : MonoBehaviour {
             if (hit.collider.tag == "Player" && !isFiring)
             {
                 Fire();
-                Debug.Log("I hit" + hit.collider.name);
             } 
 
             if (hit.collider.tag == "Player")

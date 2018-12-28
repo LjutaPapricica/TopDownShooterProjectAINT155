@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Bullet : MonoBehaviour {
 
     public float moveSpeed = 100.0f;
     public int damage = 1;
 
-	// Use this for initialization
-	void Start () {
+    public UnityEvent OnDie;
+
+    // Use this for initialization
+    void Start () {
         GetComponent<Rigidbody2D>().AddForce(transform.up * moveSpeed);		
 	}
 
@@ -26,6 +29,6 @@ public class Bullet : MonoBehaviour {
     // Update is called once per frame
     private void Die()
     {
-        Destroy(gameObject);
+        OnDie.Invoke();
     }
 }
