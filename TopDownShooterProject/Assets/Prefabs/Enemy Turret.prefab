@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 114549341858247802}
   - component: {fileID: 114987499364388474}
   - component: {fileID: 114385415104405006}
+  - component: {fileID: 114166486884085266}
   - component: {fileID: 114827034897029746}
   - component: {fileID: 114677898063850746}
   - component: {fileID: 114456183407412432}
@@ -383,6 +384,22 @@ MonoBehaviour:
   healthBar: {fileID: 114852879052151020}
   entity: {fileID: 1263634625352534}
   maxHealth: 0
+--- !u!114 &114166486884085266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1263634625352534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 472425c80295ab94fbe2413137c96e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabToSpawn: {fileID: 1913427135726436, guid: 14b3d93e2c003114da71ea905da4a702,
+    type: 2}
+  adjustmentAngle: 0
+  maxNumOfSpawns: 10
+  parentTransform: {fileID: 0}
 --- !u!114 &114385415104405006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -403,17 +420,6 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -460,6 +466,17 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 114456183407412432}
         m_MethodName: OnAddScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114166486884085266}
+        m_MethodName: Spawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

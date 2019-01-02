@@ -90,8 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40a5400de12cbe74980460a4aafd26ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1000
-  damage: 1
+  moveSpeed: 700
+  damage: 3
   OnDie:
     m_PersistentCalls:
       m_Calls:

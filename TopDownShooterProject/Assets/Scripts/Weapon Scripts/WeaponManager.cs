@@ -54,6 +54,8 @@ public class WeaponManager : MonoBehaviour
          * CALL CHANGE WEAPON, SELECT FIRST WEAPON
          */
         ChangeWeapon(0);
+        weapons[1].SetActive(false);
+        weapons[2].SetActive(false);
         PrintWeaponUI();
     }
 
@@ -199,16 +201,24 @@ public class WeaponManager : MonoBehaviour
         }        
 
     }
-    
-    private void PrintWeaponUI()
+
+    public GameObject[] GetWeapons()
+    {
+        return weapons;
+    }
+
+    public void PrintWeaponUI()
     {
         weaponUI.text = "Weapons:\n";
         for (int i = 0; i < weapons.Length; i++)
         {
+            string weaponName = weapons[i].name;
+            string shotsLeft = weapons[i].GetComponent<Weapon>().GetShotsLeft();
+
             if (weapons[i].active)
-                weaponUI.text += "<color=#ffff00ff>" + (i + 1).ToString() + ". " + weapons[i].name + "</color>\n";
+                weaponUI.text += "<color=#ffff00ff>" + weaponName + shotsLeft + "</color>\n";
             else
-                weaponUI.text += (i + 1).ToString() + ". " + weapons[i].name + "\n";
+                weaponUI.text += weapons[i].name + "\n";
         }
     }
 

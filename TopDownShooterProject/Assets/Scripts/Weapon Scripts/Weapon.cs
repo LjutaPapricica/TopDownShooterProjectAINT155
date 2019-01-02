@@ -11,8 +11,9 @@ public class Weapon : MonoBehaviour {
     public Event OnFireEvent;
     public AudioClip firingSound;
     protected AudioSource myAudioSource;
+    
+    public UnityEvent onFire;
 
-    protected WeaponManager myWeaponManager;
     protected WeaponHeatSystem myWeaponHeatSystem;
     protected AmmoSystem myAmmoSystem;
 
@@ -23,12 +24,11 @@ public class Weapon : MonoBehaviour {
 
     protected bool isFiring = false;
 
-    protected void Start()
+    private void Awake()
     {
-        myAudioSource = GetComponent<AudioSource>();
-        myWeaponManager = transform.parent.GetComponent<WeaponManager>();       
-        myWeaponHeatSystem = transform.parent.GetComponent<WeaponHeatSystem>();
         myAmmoSystem = transform.parent.GetComponent<AmmoSystem>();
+        myAudioSource = GetComponent<AudioSource>();
+        myWeaponHeatSystem = transform.parent.GetComponent<WeaponHeatSystem>();
     }
 
     protected void SetFiring()
@@ -38,6 +38,8 @@ public class Weapon : MonoBehaviour {
 
     protected virtual void Fire()
     {
+        onFire.Invoke();
+
         isFiring = true;
 
         for (int i = 0; i < bulletSpawn.Length; i++)
@@ -45,8 +47,10 @@ public class Weapon : MonoBehaviour {
             Instantiate(bulletPrefab, bulletSpawn[i].position, bulletSpawn[i].rotation);
         }
 
+        if (shotAmmoValue > 0)
         myAmmoSystem.DecreaseAmmoCount(shotAmmoValue);
 
+        if (heatValue > 0)
         myWeaponHeatSystem.IncreaseWeaponHeat(heatValue);
 
         myAudioSource.PlayOneShot(firingSound);
@@ -64,10 +68,23 @@ public class Weapon : MonoBehaviour {
     {
         if (Input.GetMouseButton(0))
         {
-            if (!isFiring && (myAmmoSystem.GetAmmoCount() > 0) && (myWeaponHeatSystem.GetWeaponHeat()))
+            if (!isFiring && (shotAmmoValue == 0 || myAmmoSystem.GetAmmoCount() > 0) && (heatValue == 0 || myWeaponHeatSystem.GetWeaponHeat()))
             {
                 Fire();
             }
         }
+    }
+
+
+    public virtual string GetShotsLeft()
+    {
+        if (shotAmmoValue > 0)
+        {
+            int ammoCount = myAmmoSystem.GetAmmoCount();
+            int shotsLeft = ammoCount / shotAmmoValue;
+
+            return "\n" + shotsLeft.ToString();
+        }
+        else return null;
     }
 }
