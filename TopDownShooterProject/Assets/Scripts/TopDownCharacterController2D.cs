@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TopDownCharacterController2D : MonoBehaviour {
 
-    public float speed = 5.0f;
+    public float speed = 5f;
     Rigidbody2D myRigidBody2D;
 
     public AudioClip movementSound;
@@ -21,8 +21,8 @@ public class TopDownCharacterController2D : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        float forwardThrusterInput = Input.GetAxis("Horizontal");
-        float sideThrusterInput = Input.GetAxis("Vertical");
+        float forwardThrusterInput = Input.GetAxisRaw("Horizontal");
+        float sideThrusterInput = Input.GetAxisRaw("Vertical");
 
         Vector2 newVelocity = new Vector2(speed * forwardThrusterInput, speed * sideThrusterInput);
 
@@ -50,4 +50,5 @@ public class TopDownCharacterController2D : MonoBehaviour {
 
             myRigidBody2D.angularVelocity = 0.0f;
     }
+    
 }

@@ -9,7 +9,7 @@ public class ClipWeapon : Weapon {
 
     public int currentClip;
 
-    private bool isClipLoaded = false;
+    private bool isClipLoaded = true;
 
 
     // Use this for initialization
@@ -18,8 +18,7 @@ public class ClipWeapon : Weapon {
         myAudioSource = GetComponent<AudioSource>();
         myAmmoSystem = transform.parent.GetComponent<AmmoSystem>();
 
-        currentClip = 0;
-        Invoke("ReloadClip", clipReloadTime);
+        currentClip = clipSize;
 
     }
 

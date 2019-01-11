@@ -21,6 +21,7 @@ public class SmoothLookAtTarget2D : MonoBehaviour {
             transform.rotation = Quaternion.Lerp(transform.rotation, newRot, Time.deltaTime * smoothing);            
 
         }
+
     }
 
     public void SetTarget(Transform newTarget)
