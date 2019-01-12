@@ -5,13 +5,14 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class OnDamagedEvent : UnityEvent<int> { }
+public class OnHealthChangeEvent : UnityEvent<int> { }
 
 public class HealthSystem : MonoBehaviour {
 
     private int health;
     public UnityEvent onDie;
-    public OnDamagedEvent onDamaged;
+    public OnHealthChangeEvent onHealthChange;
+    public UnityEvent onDamaged;
 
     public int startingHealth = 10;
 
@@ -25,7 +26,8 @@ public class HealthSystem : MonoBehaviour {
     {
         health -= damage;
 
-        onDamaged.Invoke(health);
+        onHealthChange.Invoke(health);
+        onDamaged.Invoke();
 
         if (health < 1)
         {
@@ -44,7 +46,7 @@ public class HealthSystem : MonoBehaviour {
             health += newHealth;
         }
 
-        onDamaged.Invoke(health);        
+        onHealthChange.Invoke(health);        
     }
 
     public int GetMaxHealth()

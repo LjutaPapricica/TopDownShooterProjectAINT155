@@ -410,7 +410,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b15ffd4883cfc9a4485933c99ff77324, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoCount: 200
+  maxAmmoCapacity: 200
 --- !u!1 &132082955
 GameObject:
   m_ObjectHideFlags: 0
@@ -1171,6 +1171,127 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9cfbcf9a0afce724b8a4d28cb0f413c1, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &411657055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 411657057}
+  - component: {fileID: 411657056}
+  - component: {fileID: 411657058}
+  - component: {fileID: 411657059}
+  m_Layer: 13
+  m_Name: Repair pad
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &411657056
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411657055}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -96290123
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300006, guid: aab06b1b84f721e48a8a2b3021d9624d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 10.24, y: 10.24}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+--- !u!4 &411657057
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411657055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.55, y: -2.56, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1261421865}
+  - {fileID: 544608948}
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &411657058
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411657055}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.000000059604645, y: -0.0030263662}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.56, y: 2.56}
+    newSize: {x: 10.24, y: 10.24}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.4268384, y: 2.4328911}
+  m_EdgeRadius: 0
+--- !u!95 &411657059
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411657055}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 68747cc37a662c64f94f3b60a05b967c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &414489166
 Prefab:
   m_ObjectHideFlags: 0
@@ -1658,6 +1779,65 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!1 &544608947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 544608948}
+  - component: {fileID: 544608950}
+  - component: {fileID: 544608949}
+  m_Layer: 12
+  m_Name: Repair sensor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &544608948
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 544608947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 411657057}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &544608949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 544608947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c144fdd6ee15d814aa4db5d87cf5eeb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  time: 0
+  timeBeforeRegen: 1
+  isPlayerPresent: 0
+--- !u!58 &544608950
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 544608947}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.08
 --- !u!1001 &578461339
 Prefab:
   m_ObjectHideFlags: 0
@@ -2865,10 +3045,6 @@ Prefab:
       propertyPath: m_Name
       value: Moon Rock (15)
       objectReference: {fileID: 0}
-    - target: {fileID: 4705419523054516, guid: cbf677140b5ad304fb605038ee4876e6, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -661.412
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbf677140b5ad304fb605038ee4876e6, type: 2}
   m_IsPrefabParent: 0
@@ -3478,6 +3654,80 @@ Transform:
   m_PrefabParentObject: {fileID: 4333805428816510, guid: d74170919704b0d42ad0f8591a0af9cd,
     type: 2}
   m_PrefabInternal: {fileID: 1629577425}
+--- !u!1 &1261421864
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1261421865}
+  - component: {fileID: 1261421866}
+  m_Layer: 13
+  m_Name: Repair pad aura
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1261421865
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1261421864}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 411657057}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1261421866
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1261421864}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -96290123
+  m_SortingLayer: 2
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300002, guid: aab06b1b84f721e48a8a2b3021d9624d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2.56, y: 2.56}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!4 &1290333457 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4806224605339138, guid: 9cfbcf9a0afce724b8a4d28cb0f413c1,
@@ -33670,10 +33920,6 @@ Prefab:
       propertyPath: m_Name
       value: Moon Rock (10)
       objectReference: {fileID: 0}
-    - target: {fileID: 4705419523054516, guid: cbf677140b5ad304fb605038ee4876e6, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -684.523
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbf677140b5ad304fb605038ee4876e6, type: 2}
   m_IsPrefabParent: 0
@@ -34300,7 +34546,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  onDamaged:
+  onHealthChange:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1948584246}
@@ -34314,8 +34560,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: OnDamagedEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    m_TypeName: OnHealthChangeEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
+  onDamaged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   startingHealth: 100
 --- !u!81 &1948584248
 AudioListener:
@@ -34508,7 +34759,7 @@ Prefab:
     - target: {fileID: 114237468523964854, guid: d33c08317ce1f2a4a9603763aa54c65f,
         type: 2}
       propertyPath: data.dataString
-      value: UEsDBBQAAAgIAAAAIexkARwdUAIAAOIEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMty2jAU/RVG65KxeRV31xJCuyDJhHS68UbI11iDLHn0CJAM/94rWWCHTle2z7n36NyH/EG4NA0wq/RK82KtCiDfBsS/ky8DQgP3Qi1XCKeIcKNqsJqz73InfGyCoJO8VLpeFjtYKGMNwiUVBpDSyvpsidDHgBzxMcx8yimmvvvn4IxvDKQF3cUld9NJms7H2SSL8cPkbpKl2Xw6jonD0V02Hk1m6XKYzIOIk0zQuoFiw9+h05qmUWKahjCJdcYIzzAlBDfRJbGnJjThhZ58DwpOseLgzMdWwHeVxY9RP/GpLA3YWJOmp3uusXGtIvmhbOWVamr2rac3Klw4PLhpJdf/sMOWLrWqf15OTRN/gq0426M/Ro3tNbsP33+27eSBij3dCvhTgXxUK62cLJC02vlUZ2B0331eC1tUwPYd3lq9AV3Tm9rNbH0N51D7cSF4vY0Ufm6ECn0O6wAaJ/IL7YZlMTEKUe/ht4FXuutvVSQeuDYWqVij9Oa2ymkfSpahY74WZxdKS9B9hQYkFfb0jDr2dn433P+zHqi/OPH0yF3uxU1KgLv4JLmhntXhOitTqcMaTPXkrOASukZ74hEbtVBStuvVL+mStnG6pKyXtnO8+LxZZMZoliTjBGZ4fTB6mACMtmySsmQ2L75OpySsHpdYJxXPrdHYHhyb7MQlrtnllzFYadqEVS80Paz4e61MF8llqTZMA8inVuFqHDQegtexWBYcG7QBa7kMAycfORGK7aHIr0J5qHR5tJrmnUpOGv6mrEdysgj/kpycyfkvUEsDBBQAAAgIAAAAIewQqbqNbAAAAHcAAAAJACQAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0Bq1YqSy0qzszPU7JSMNEz0jPSUVBKL0osyCgGChiCOKWZKSB2tJJZcqKlgYGxQaqZkYlZWmKyrkFqqlFSsolhsoGZRYq5qalSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAAAh7GQBHB1QAgAA4gQAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAAAh7BCpuo1sAAAAdwAAAAkAJAAAAAAAAAAAAAAAnQIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAABUAwAAAAA=
+      value: UEsDBBQAAAgIAAAAIeyf/mqLVAIAAOUEAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQF1VMty2jAU/RVG65KxeRV31xJCuyDJhHS68UbI11iDLHn0CJAM/94rWWCHTle2zz336NyH/EG4NA0wq/RK82KtCiDfBsS/ky8DQkPshVquEE4R4UbVYDVn3+VOeG6CoJO8VLpeFjtYKGMNwiUVBjCklfXZEqGPATniY5j5lFNMfffPwRnfGEgLuuMld9NJms7H2SSL/GFyN8nSbD4dx8Th6C4bjyazdDlM5kHESSZo3UCx4e/QaU3TKDFNA01inZHhI0wJwU10SeypCU14oSffg4JTrDg489wK+K6y+DHqJz6VpQEba9L0dM81Nq5VJD+UrbxSTc2+9fRGhfNnzNNsHAy1qut/CMPWb6lV/fNycJr4Q2zF2R4tMmpsr999+P6zcycPVOzpVsCfCuSjWmnlZIFBq51PdQZG993ntbZFBWzf4a3VG9A1vcHdjNfXcA7lHxeC19sYws+NUKHVYSNA41B+od2wLyayEPUefht4pbv+YsXAA9fGYijWKL25rXLaU8kydMzX4uxCaQm6r9CApMKenlHH3o7wJvb/rAfq7048PcYuV+MmJcAdP0luQs/qcJ2VqdRhDaZ6clZwCV2jfeARG7VQUrYb1i/pkrZxuqSsl7ZzvPi8WWTGaJYk4wRmeIOQPUwARls2SVkymxdfp1MSVo9LrJOK59ZobA+OTXbiEtfs8tcYrDRtwrYXmh5W/L1WpmNyWaoN0wDyqVW4GgeNh+CNLJYFxwZtwFouw8DJR06EYnso8qtQHipdHq2meaeSk4a/KeuRnCzC7yQnZ3L+C1BLAwQUAAAICAAAACHsEKm6jWwAAAB3AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9Iz0lFQSi9KLMgoBgoYgjilmSkgdrSSWXKipYGBsUGqmZGJWVpisq5BaqpRUrKJYbKBmUWKuampUixQfUllQapfYm4qRE9AYklGWmZeSmZeup57UWaKO8hopdhaAFBLAQItABQAAAgIAAAAIeyf/mqLVAIAAOUEAAALACQAAAAAAAAAAAAAAAAAAABncmFwaDAuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLAQItABQAAAgIAAAAIewQqbqNbAAAAHcAAAAJACQAAAAAAAAAAAAAAKECAABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwUGAAAAAAIAAgC4AAAAWAMAAAAA
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d33c08317ce1f2a4a9603763aa54c65f, type: 2}

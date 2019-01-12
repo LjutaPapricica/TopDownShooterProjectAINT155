@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class AmmoSystem : MonoBehaviour {
     
-    [SerializeField] int ammoCount = 1000;
-
+    [SerializeField] int maxAmmoCapacity = 1000;
+    private int ammoCount;
     private Player thePlayer;
 
     private void Start()
     {
         thePlayer = transform.parent.GetComponent<Player>();
+        ammoCount = maxAmmoCapacity;
     }
 
     public void DecreaseAmmoCount(int shotAmmoValue)
     {
-        ammoCount -= shotAmmoValue;
+        ammoCount = Mathf.Clamp(ammoCount - shotAmmoValue, 0, maxAmmoCapacity);
+
+        thePlayer.SendAmmoData(ammoCount);
+    }
+
+    public void IncreaseAmmoCount(int ammoResupply)
+    {
+        ammoCount = Mathf.Clamp(ammoCount + ammoResupply, 0, maxAmmoCapacity);
 
         thePlayer.SendAmmoData(ammoCount);
     }

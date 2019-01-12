@@ -30,7 +30,12 @@ public class EnemyShoot : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        RaycastHit2D hit = Physics2D.Raycast(gunEnd.position, gunEnd.up, maxRange);
+        int layerMaskPlayer = 1 << 10;
+        int layerMaskObstacle = 1 << 0;
+
+        int finalLayerMask = layerMaskObstacle | layerMaskPlayer;
+
+        RaycastHit2D hit = Physics2D.Raycast(gunEnd.position, gunEnd.up, maxRange, finalLayerMask);
         Debug.DrawRay(gunEnd.position, gunEnd.up, Color.red);
 
         if (hit.collider != null) 
