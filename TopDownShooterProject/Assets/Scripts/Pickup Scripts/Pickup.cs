@@ -37,7 +37,8 @@ public enum PickupType
     Damage,
     Invincible,
     AttackSpeed,
-    MoveSpeed
+    MoveSpeed,
+    Ammo
 }
 
 public class Pickup : MonoBehaviour
@@ -61,7 +62,8 @@ public class Pickup : MonoBehaviour
 
     public float speedIncrease = 5;
     public float fireSpeed = 0.1f;
-    public int addHealth = 10;
+    public int addHealth = 40;
+    public int addAmmo = 100;
 
     /*
      * OnTriggerEnter2D
@@ -89,11 +91,16 @@ public class Pickup : MonoBehaviour
                 other.GetComponent<HealthSystem>().AddHealth(addHealth);
                 break;
 
+            case PickupType.Ammo:
+                other.GetComponentInChildren<AmmoSystem>().IncreaseAmmoCount(addAmmo);
+                break;
+
             /*
              * DAMAGE INCREASE
              * we use AddComponent to add the DamageIncrease component to the player GameObject
              * the DamageIncrease component will handle itself from there
              */ 
+
             case PickupType.Damage:
                 DamageIncrease d = other.gameObject.AddComponent<DamageIncrease>();
                 d.time = time;

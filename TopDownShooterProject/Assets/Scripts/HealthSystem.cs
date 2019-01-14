@@ -53,4 +53,9 @@ public class HealthSystem : MonoBehaviour {
     {
         return startingHealth;
     }
+
+    public int GetHealth()
+    {
+        return health;
+    }
 }

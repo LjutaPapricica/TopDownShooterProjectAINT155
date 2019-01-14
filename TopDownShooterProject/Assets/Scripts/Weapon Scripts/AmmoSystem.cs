@@ -32,4 +32,9 @@ public class AmmoSystem : MonoBehaviour {
     {
         return ammoCount;
     }
+
+    public int GetMaxAmmoCount()
+    {
+        return maxAmmoCapacity;
+    }
 }

@@ -5,18 +5,31 @@ using UnityEngine.Events;
 
 public class RepairPad : MonoBehaviour {
 
+    public UnityEvent onPlayerRepairing;
+    public UnityEvent onPlayerRepaired;
+    public UnityEvent onPlayerLeave;
+
+    private HealthSystem playerHealthSystem;
+    private AmmoSystem playerAmmoSystem;
+
     public float time = 0f;
     public float timeBeforeRegen = 3f;
 
     public bool isPlayerPresent = false;
+    public bool isPlayerRepaired, isPlayerRepairing;
+
     private GameObject player;
 
     private void Update()
     {
         if (isPlayerPresent)
         {
-            time += Time.deltaTime;
+            if (!isPlayerRepaired)
+            {
+                time += Time.deltaTime;
+            }
 
+            CheckPlayerFullHealthAndAmmo();
             RegeneratePlayerHealthAndAmmo(player.gameObject);
         }
     }
@@ -27,24 +40,50 @@ public class RepairPad : MonoBehaviour {
         {
             isPlayerPresent = true;
             player = other.gameObject;
-            player.GetComponent<HealthSystem>().onDamaged.AddListener(ResetTimer);
+
+            playerHealthSystem = player.GetComponent<HealthSystem>();
+            playerAmmoSystem = player.GetComponentInChildren<AmmoSystem>();
+
+            playerHealthSystem.onDamaged.AddListener(ResetTimer);
         }
 
+    }
+
+    private void CheckPlayerFullHealthAndAmmo()
+    {
+        if (playerHealthSystem != null && playerAmmoSystem != null)
+        {
+            int health = playerHealthSystem.GetHealth(), maxHealth = playerHealthSystem.GetMaxHealth();
+            int ammo = playerAmmoSystem.GetAmmoCount(), maxAmmo = playerAmmoSystem.GetMaxAmmoCount();
+
+            if (ammo < maxAmmo || health < maxHealth)
+            {
+                isPlayerRepaired = false;                
+                 onPlayerRepairing.Invoke();
+            }
+            else
+            {
+                isPlayerRepaired = true;
+            }
+        }
     }
 
     private void ResetTimer()
     {
         time = 0f;
+        onPlayerRepairing.Invoke();
     }
 
     private void RegeneratePlayerHealthAndAmmo(GameObject player)
     {
-        if (time >= timeBeforeRegen)
+        if ((time >= timeBeforeRegen) && !isPlayerRepaired)            
         {
             time = 0f;
 
-            player.GetComponent<HealthSystem>().AddHealth(1000);
-            player.GetComponentInChildren<AmmoSystem>().IncreaseAmmoCount(1000);
+            playerHealthSystem.AddHealth(1000);
+            playerAmmoSystem.IncreaseAmmoCount(1000);
+
+            onPlayerRepaired.Invoke();
         }
     }
 
@@ -54,6 +93,8 @@ public class RepairPad : MonoBehaviour {
         {
             isPlayerPresent = false;
             time = 0f;
+            playerHealthSystem.onDamaged.RemoveListener(ResetTimer);
+            onPlayerLeave.Invoke();
         }
     }
 }
