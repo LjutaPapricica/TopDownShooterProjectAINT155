@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UserControls : MonoBehaviour {
 
     bool isPaused;
+    public Image instructions;
 
 	// Use this for initialization
 	void Start () {
@@ -20,12 +22,14 @@ public class UserControls : MonoBehaviour {
                 Time.timeScale = 0f;
                 AudioListener.pause = true;
                 isPaused = true;
+                instructions.gameObject.SetActive(true);
             }
             else
             {
                 Time.timeScale = 1f;
                 AudioListener.pause = false;
                 isPaused = false;
+                instructions.gameObject.SetActive(false);
             }
         }
 

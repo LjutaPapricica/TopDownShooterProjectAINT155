@@ -198,9 +198,9 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  fireTime: 0.2
+  fireTime: 0.15
   shotAmmoValue: 1
   heatValue: 0
   clipReloadTime: 5
-  clipSize: 30
+  clipSize: 40
   currentClip: 0

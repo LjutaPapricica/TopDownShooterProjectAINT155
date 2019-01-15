@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4277428077895210}
   - component: {fileID: 114046104056591788}
-  - component: {fileID: 82451711740613628}
+  - component: {fileID: 82909200988631314}
   m_Layer: 14
   m_Name: Weapon 1
   m_TagString: Untagged
@@ -71,7 +71,7 @@ GameObject:
   m_Layer: 14
   m_Name: BulletSpawn 1
   m_TagString: Untagged
-  m_Icon: {fileID: 7422848464349959988, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -418,18 +418,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.87333333, y: 0.82706356}
   m_EdgeRadius: 0
---- !u!82 &82451711740613628
+--- !u!82 &82473188279508968
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1327291445172132}
+  m_GameObject: {fileID: 1799405243763048}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -438,9 +438,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 100
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -449,22 +449,31 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.20263672
       inSlope: 0
       outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.105047554
+      value: 0.13146749
+      inSlope: -1.7854
+      outSlope: -1.7854
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
+      time: 0.14379883
       value: 0
-      inSlope: 0
-      outSlope: 0
+      inSlope: -1.3120972
+      outSlope: -1.3120972
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0.6379101
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -472,8 +481,8 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0
+      time: 0.06637192
+      value: 0.99674606
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -502,8 +511,8 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 1
+      time: 0.07079506
+      value: 1.0000038
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -513,18 +522,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &82473188279508968
+--- !u!82 &82909200988631314
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1799405243763048}
+  m_GameObject: {fileID: 1327291445172132}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -632,7 +641,7 @@ MonoBehaviour:
     type: 2}
   projectileSpawn: {fileID: 4604633160535024}
   reloadTime: 1
-  fireSound: {fileID: 8300000, guid: 2490ac0c5649edf47a595ab7aa3d4398, type: 3}
+  fireSound: {fileID: 8300000, guid: 60f2332a096eafb42bab821e04388c7c, type: 3}
 --- !u!114 &114306886479684016
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -788,7 +797,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  startingHealth: 25
+  startingHealth: 60
 --- !u!114 &114558092450846192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -876,7 +885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointOfVision: {fileID: 4999946929899412}
-  maxRange: 5
+  maxRange: 12
   onClearToFire:
     m_PersistentCalls:
       m_Calls:

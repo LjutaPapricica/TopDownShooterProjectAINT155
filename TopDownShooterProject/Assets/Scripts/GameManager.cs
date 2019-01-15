@@ -5,9 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
-	public void StartGame()
+    public Transform enemies;
+    public Transform enemySpawners;
+
+    private void Update()
     {
-        SceneManager.LoadScene("Game");
+        if (enemies != null && enemySpawners != null)
+        {
+            if (enemies.childCount == 0 && enemySpawners.childCount == 0)
+            {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
+        }
+    }
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Level 1");
     }
 
     public void EndGame()

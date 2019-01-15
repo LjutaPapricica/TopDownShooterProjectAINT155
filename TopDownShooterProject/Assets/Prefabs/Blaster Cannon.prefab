@@ -208,6 +208,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  fireTime: 0.5
-  shotAmmoValue: 6
-  heatValue: 5
+  fireTime: 0.3
+  shotAmmoValue: 4
+  heatValue: 3
