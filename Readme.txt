@@ -27,3 +27,10 @@ https://gameartpartners.com/downloads/sci-fi-factory-platformer-set/
 
 Main Menu background
 https://buzzerg.com/30522-fantasy-space-id-20406.htm
+
+https://kingshemboo.itch.io/conflict-in-space
+
+https://github.com/ShemSkillman/TopDownShooterProjectAINT155
+
+https://trello.com/b/OTgejVJL/aint155-top-down-shooter-project
+
