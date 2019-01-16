@@ -334,7 +334,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   time: 0
-  timeBeforeRegen: 3
+  timeBeforeRegen: 2
   isPlayerPresent: 0
   isPlayerRepaired: 0
   isPlayerRepairing: 0

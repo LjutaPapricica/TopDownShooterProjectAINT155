@@ -12,21 +12,21 @@ public class Spawner : MonoBehaviour {
 
     public void Spawn()
     {
-        Vector3 rotationinDegrees = transform.eulerAngles;
-        rotationinDegrees.z += adjustmentAngle;
+        //Vector3 rotationinDegrees = transform.eulerAngles;
+        //rotationinDegrees.z += adjustmentAngle;
 
-        Quaternion rotationInRadians = Quaternion.Euler(rotationinDegrees);
+        //Quaternion rotationInRadians = Quaternion.Euler(rotationinDegrees);
 
         if(parentTransform != null)
         {
             if(parentTransform.childCount < maxNumOfSpawns)
             {
-                Instantiate(prefabToSpawn, transform.position, rotationInRadians, parentTransform);
+                Instantiate(prefabToSpawn, transform.position, Quaternion.identity, parentTransform);
             }            
         }
         else
         {
-            Instantiate(prefabToSpawn, transform.position, rotationInRadians);
+            Instantiate(prefabToSpawn, transform.position, Quaternion.identity);
         }
         
     }
