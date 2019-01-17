@@ -5,6 +5,8 @@ using UnityEngine.Events;
 
 public class AIEnemyWeaponControl : MonoBehaviour {
 
+    //see AIAllyWeaponControl script for comments 
+
     public Transform pointOfVision;
     public float maxRange = 5f;
 

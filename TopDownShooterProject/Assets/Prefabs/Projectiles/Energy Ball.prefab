@@ -91,7 +91,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a60979cfdcc7d14698466ece345c984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosivityMultiplier: 0.2
+  explosivityMultiplier: 0.1
+  maxExplosionRadius: 5
 --- !u!114 &114364635801842060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -117,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 700
-  damage: 8
+  damage: 4
   OnDie:
     m_PersistentCalls:
       m_Calls:

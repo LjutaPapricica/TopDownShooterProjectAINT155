@@ -50,9 +50,7 @@ public class WeaponManager : MonoBehaviour
 
     void Start()
     {
-        /*
-         * CALL CHANGE WEAPON, SELECT FIRST WEAPON
-         */
+         //at the start the first weapon is selected and the other weapons are disabled
         ChangeWeapon(0);
         weapons[1].SetActive(false);
         weapons[2].SetActive(false);
@@ -73,6 +71,8 @@ public class WeaponManager : MonoBehaviour
          * see link: https://docs.unity3d.com/ScriptReference/Transform-childCount.html
          */
         
+        //if the next weapon idex is outside the range of the array then
+        //cycle back to select the first weapon
         if (index >= weapons.Length)
         {
             index = 0;
@@ -101,17 +101,15 @@ public class WeaponManager : MonoBehaviour
                      */
                     weapons[i].SetActive(true);
                 }
-                else if (!isShootMultiple) // DEACTIVATE ALL WEAPONS NOT AT INDEX
+                //if shift is not held down then the weapon is disabled if its not the one selected
+                else if (!isShootMultiple) 
                 {
-                    /*
-                     * DEACTIVATE THE WEAPON GAMEOBJECT
-                     * here, we will use SetActive to deactivate the weapon's GameObject
-                     * see link: https://docs.unity3d.com/ScriptReference/GameObject.SetActive.html
-                     */
                     weapons[i].SetActive(false);
                 }
+                //if the shift button is held down then previously selected weapons are not disabled and kept selected
             }
 
+            //weapon UI updated as new weapons selected / deselected
         PrintWeaponUI();
 
     }
@@ -186,11 +184,13 @@ public class WeaponManager : MonoBehaviour
             ChangeWeapon(2); // change to weapon 2
         }
 
+        //if right mouse button clicked then the next weapon is selected
         if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             ChangeWeapon(currentWeaponIdex + 1);
         }
 
+        //when the shift is selected then the player can choose multiple weapons
         if (Input.GetKey(KeyCode.LeftShift))
         {
             isShootMultiple = true;
@@ -202,19 +202,24 @@ public class WeaponManager : MonoBehaviour
 
     }
 
+    //returns an array of gameobjects (all weapons the play has)
     public GameObject[] GetWeapons()
     {
         return weapons;
     }
 
+    //prints weapon UI
     public void PrintWeaponUI()
     {
         weaponUI.text = "Weapons:\n";
         for (int i = 0; i < weapons.Length; i++)
         {
+            //gets the player name as a string
             string weaponName = weapons[i].name;
+            //gets the number of shots left calculated by the weapon
             string shotsLeft = weapons[i].GetComponent<Weapon>().GetShotsLeft();
 
+            //if the weapon is acitve (selected) then highlight the text a different colour to show it's selected
             if (weapons[i].active)
                 weaponUI.text += "<color=#ffff00ff>" + weaponName + shotsLeft + "</color>\n";
             else

@@ -12,21 +12,25 @@ public class Bullet : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        //when bullet created a force is immediately applied
         GetComponent<Rigidbody2D>().AddForce(transform.up * moveSpeed);		
 	}
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        //object that collided with bullet takes damage
+        //if other damage has no "TakeDamage" method then nothing happens
         other.transform.SendMessage("TakeDamage", damage, SendMessageOptions.DontRequireReceiver);
         Die();
     }
 
+    //bullet destroyed if cannot be seen on the camera
     private void OnBecameInvisible()
     {
         Die();
     }
-
-    // Update is called once per frame
+    
+    //listeners tied to OnDie Event triggered
     private void Die()
     {
         OnDie.Invoke();

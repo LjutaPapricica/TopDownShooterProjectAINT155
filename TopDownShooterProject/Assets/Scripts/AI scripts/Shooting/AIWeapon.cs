@@ -25,11 +25,13 @@ public class AIWeapon : MonoBehaviour {
         FireControl();
 	}
 
+    //triggered by AI weapon control script when target is within range and in sight
     public void CanSeeTarget()
     {
         seeTarget = true;
     }
 
+    //triggered by AI weapon control script when target is not within sight or out of range
     public void CannotSeeTarget()
     {
         seeTarget = false;
@@ -37,6 +39,7 @@ public class AIWeapon : MonoBehaviour {
 
     private void FireControl()
     {
+        //check if weapon reloaded and target in sight
         if (isReloaded && seeTarget)
         {
             Fire();
@@ -45,15 +48,18 @@ public class AIWeapon : MonoBehaviour {
 
     private void Fire()
     {
+            //if weapon is loaded spawn projectile at gun end and fire it in direction towards target
             isReloaded = false; 
             Instantiate(projectilePrefab, projectileSpawn.position, projectileSpawn.rotation);
             theAudioSource.PlayOneShot(fireSound);
 
+            //gun can fire once gun is reloaded after set time period
             Invoke("SetReloaded", reloadTime);            
     }
 
     private void SetReloaded()
     {
+        //weapon can now fire again
         isReloaded = true;
     }
 }

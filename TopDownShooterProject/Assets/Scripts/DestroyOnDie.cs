@@ -11,12 +11,15 @@ public class DestroyOnDie : MonoBehaviour {
 
     public void Die()
     {
+        //if there are sounds in the AudioClip array then pick a random death sound
+        //clip is played at transform of destroyed gameobject
         if (destroyedSounds.Length > 0)
         {
             AudioClip randomDeathSound = destroyedSounds[Random.Range(0, destroyedSounds.Length)];
             AudioSource.PlayClipAtPoint(randomDeathSound, transform.position, destroyedSoundVol);
         }
 
+        //gameobject destroyed
         Destroy(gameObject);
     }
 }

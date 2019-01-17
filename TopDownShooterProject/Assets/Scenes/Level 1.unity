@@ -718,6 +718,80 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9cfbcf9a0afce724b8a4d28cb0f413c1, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &444308536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 444308537}
+  - component: {fileID: 444308539}
+  - component: {fileID: 444308538}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &444308537
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 444308536}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 596396806}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -3, y: 41}
+  m_SizeDelta: {x: 440.9, y: 82.7}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &444308538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 444308536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 1, b: 0.027450982, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 300
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Press 'ESC' key for Help!
+--- !u!222 &444308539
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 444308536}
 --- !u!4 &445815923 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4512871082937770, guid: 868fc29458c1412409a16a52150c318d,
@@ -936,6 +1010,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4806224605339138, guid: 9cfbcf9a0afce724b8a4d28cb0f413c1,
     type: 2}
   m_PrefabInternal: {fileID: 1451745403}
+--- !u!224 &596396806 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 224794358931810726, guid: f98e678ff47122b4e80bdc252c4370a5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1398587071}
 --- !u!1001 &596861494
 Prefab:
   m_ObjectHideFlags: 0
@@ -53668,6 +53747,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114225114397429696, guid: 868fc29458c1412409a16a52150c318d,
+        type: 2}
+      propertyPath: theCamera
+      value: 
+      objectReference: {fileID: 884573597}
+    - target: {fileID: 114178943209335326, guid: 868fc29458c1412409a16a52150c318d,
+        type: 2}
+      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1341184853}
     - target: {fileID: 114257262418506258, guid: 868fc29458c1412409a16a52150c318d,
         type: 2}
       propertyPath: weaponUI
@@ -53675,14 +53764,9 @@ Prefab:
       objectReference: {fileID: 812403436}
     - target: {fileID: 114178943209335326, guid: 868fc29458c1412409a16a52150c318d,
         type: 2}
-      propertyPath: onDie.m_PersistentCalls.m_Calls.Array.data[1].m_Target
-      value: 
-      objectReference: {fileID: 1341184853}
-    - target: {fileID: 114225114397429696, guid: 868fc29458c1412409a16a52150c318d,
-        type: 2}
-      propertyPath: theCamera
-      value: 
-      objectReference: {fileID: 884573597}
+      propertyPath: startingHealth
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 868fc29458c1412409a16a52150c318d, type: 2}
   m_IsPrefabParent: 0

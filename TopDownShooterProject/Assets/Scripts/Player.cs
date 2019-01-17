@@ -12,29 +12,8 @@ public class Player : MonoBehaviour {
 
     public delegate void UpdateWeaponHeat(int newWeaponHeat);
     public static event UpdateWeaponHeat OnUpdateWeaponHeat;
-
-    private Animator gunAnim;
-
-    private void Start()
-    {
-        gunAnim = GetComponent<Animator>();
-    }
-
-    private void Update()
-    {
-        if (gunAnim != null)
-        {
-            if (Input.GetMouseButton(0))
-            {
-                gunAnim.SetBool("isFiring", true);
-            }
-            else
-            {
-                gunAnim.SetBool("isFiring", false);
-            }
-        }
-    }
-
+    
+    //send total health value to health bar UI
     public void SendHealthData(int health)
     {
         if (OnUpdateHealth != null)
@@ -43,6 +22,7 @@ public class Player : MonoBehaviour {
         }
     }
 
+    //send total ammo value to ammo bar UI
     public void SendAmmoData(int ammoCount)
     {
         if (OnUpdateAmmoCount != null)
@@ -51,6 +31,7 @@ public class Player : MonoBehaviour {
         }
     }
 
+    //send total heat value to heat bar UI
     public void SendWeaponHeatData(int weaponHeat)
     {
         if (OnUpdateWeaponHeat != null)
