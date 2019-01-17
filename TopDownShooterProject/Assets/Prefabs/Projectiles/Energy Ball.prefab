@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a60979cfdcc7d14698466ece345c984, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosivityMultiplier: 0.1
+  explosivityMultiplier: 0.2
 --- !u!114 &114364635801842060
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,7 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c639b3a93b83f774b9f5f2018a649c04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyedSound: {fileID: 0}
+  destroyedSounds: []
+  destroyedSoundVol: 1
 --- !u!114 &114370884319509698
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,7 +117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 700
-  damage: 5
+  damage: 8
   OnDie:
     m_PersistentCalls:
       m_Calls:

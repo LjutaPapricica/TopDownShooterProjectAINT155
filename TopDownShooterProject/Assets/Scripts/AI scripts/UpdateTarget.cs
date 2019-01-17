@@ -12,9 +12,11 @@ public class UpdateTarget : MonoBehaviour {
     public GameObject closestAdversary;
     private GameObject[] adversaries;
 
+    public float refreshTime = 5f;
+
     private void Start()
     {
-        InvokeRepeating("FindClosestAdversary", 0f, 5f);
+        InvokeRepeating("FindClosestAdversary", 0f, refreshTime);
     }
 
     private void Update()
