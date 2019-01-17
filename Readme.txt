@@ -28,6 +28,18 @@ https://ya-webdesign.com/explore/purple-lights-png/
 Heat bar background 
 https://www.pinterest.co.uk/pin/527836018801317816/
 
+Mouse button left click image
+https://www.kisspng.com/png-computer-mouse-button-point-and-click-computer-ico-2252110/preview.html
+
+Mouse button right click image
+https://www.flaticon.com/free-icon/mouse-right-button_31127
+
+Keyboard image
+https://www.dummies.com/computers/pcs/how-to-use-the-numeric-keypad-on-your-laptop/
+
+Mouse zoom image
+https://icons8.com/icon/2256/mouse-scrolling
+
 Sound effects:
 
 Kenney SFX
@@ -55,4 +67,6 @@ https://www.youtube.com/watch?v=jD7Y8kSDZNo&t=60s
 
 Battlezone Soundtrack - 'Music1'
 https://www.youtube.com/watch?v=GGRm0-Cp3t4&t=28s
+
+
 
